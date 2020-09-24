@@ -44,3 +44,24 @@ error: File /Users/rodneyrehm/Library/Developer/Xcode/DerivedData/rninitsvg-dnbj
 React Native, please report it here: https://github.com/facebook/react-native/issues
 + exit 2
 ```
+
+## Solution
+
+Apply patch [[RN v0.63.2] Fix Xcode bundler in staging and release #29477](https://github.com/facebook/react-native/pull/29477/files) by executing `patch-react-native-xcode.sh`:
+
+```sh
+➜  ./patch-react-native-xcode.sh
+looking at node_modules/react-native/scripts/react-native-xcode.sh
+patch not yet applied
+patching file node_modules/react-native/scripts/react-native-xcode.sh
+
+➜  ./patch-react-native-xcode.sh
+looking at node_modules/react-native/scripts/react-native-xcode.sh
+patch was already applied
+```
+
+**NOTE** there is a space at the end of the following line, make sure that space is not dropped (due to [trim_trailing_whitespace](https://editorconfig.org/) or some such):
+
+```
+-# and setting custom `PROJECT_ROOT` only makes it confusing. 
+```
